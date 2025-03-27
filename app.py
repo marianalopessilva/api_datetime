@@ -5,6 +5,15 @@ app = Flask(__name__)
 
 @app.route('/verificar_data/<ano>-<mes>-<dia>')
 def verificar_data(ano,mes,dia):
+    """
+    :param ano: ano digitado pelo usuario
+    :param mes: mes digitado pelo usuario
+    :param dia: dia digitado pelo usuario
+    :return: retorna a situacao da data recebida em relacao a data atual (passado, presente e futuro);
+    retorna a quantidade em dias de diferenca entre a data recebida e a data atual;
+    retorna a quantidade em meses de diferenca entre a data recebida e a data atual;
+    retorna a quantidade em anos de diferenca entre a data recebida e a data atual;
+    """
     try:
         ano = int(ano)
         mes = int(mes)
