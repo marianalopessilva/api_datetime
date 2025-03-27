@@ -6,13 +6,29 @@ app = Flask(__name__)
 @app.route('/verificar_data/<ano>-<mes>-<dia>')
 def verificar_data(ano,mes,dia):
     """
+    ## Endpoint:
+    'GET /dias/<data_str>
+
     :param ano: ano digitado pelo usuario
     :param mes: mes digitado pelo usuario
     :param dia: dia digitado pelo usuario
-    :return: retorna a situacao da data recebida em relacao a data atual (passado, presente e futuro);
-    retorna a quantidade em dias de diferenca entre a data recebida e a data atual;
-    retorna a quantidade em meses de diferenca entre a data recebida e a data atual;
-    retorna a quantidade em anos de diferenca entre a data recebida e a data atual;
+    :return: retorna o periodo da data recebida
+    (futuro, presente e passado) e a diferença em dias,
+     meses e anos entre as datas
+
+    ## Resposta (JSON):
+    '''json
+    {
+        'situacao': passado,
+        'dias_diferenca': 90,
+        'meses_diferenca': 3,
+        'anos_diferenca': 0,
+    }
+    '''
+
+    ## Erros possiveis:
+    - Se data_recebida tiver letra, retorna 'erro': "valor inválido"
+       '''json
     """
     try:
         ano = int(ano)
