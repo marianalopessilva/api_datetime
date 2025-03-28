@@ -43,6 +43,11 @@ def verificar_data(ano,mes,dia):
         meses_diferenca = (data_atual.year - data_recebida.year) * 12
         anos_diferenca = data_atual.year - data_recebida.year
 
+
+        if data_recebida.month > data_atual.month:
+            anos_diferenca = anos_diferenca - 1
+
+
         if data_recebida > data_atual:
             situacao = 'Futuro'
         elif data_recebida < data_atual:
